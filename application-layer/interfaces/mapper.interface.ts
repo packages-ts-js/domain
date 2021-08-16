@@ -2,7 +2,7 @@ export interface IMapperPersistentDomain<Entity, Domain>{
 
 }
 
-export interface IMapperDomainCreate<Domain, CreateDto>{
+export interface IMapperCreateDomainProps<CreateDto, DomainProps>{
     
 }
 
