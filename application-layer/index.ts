@@ -1,1 +1,2 @@
-export {} from './interfaces/use-case.interface'
+export { IUseCase, IUseCaseCommand } from './interfaces/use-case.interface'
+export { IMapperDomainCreate, IMapperDomainDetatils, IMapperDomainSummary, IMapperDomainUpdate, IMapperPersistentDomain } from './interfaces/mapper.interface'
