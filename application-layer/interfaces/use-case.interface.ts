@@ -3,6 +3,4 @@ export interface IUseCase<IRequest, IResponse> {
 }
 
 
-export interface IUseCaseCommand<IRequest> {
-  execute(request: IRequest): Promise<void> | void;
-}
+export interface IUseCaseCommand<IRequest> extends IUseCase<IRequest, void> {}
