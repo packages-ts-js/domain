@@ -1,6 +1,8 @@
 import { IRepository } from "../interfaces/repository.interface";
 
 export class ThrowRepositoryMock<T> implements IRepository<T> {
+    
+    
     find(): T[] | Promise<T[]> {
         throw new Error("Method not implemented.");
     }

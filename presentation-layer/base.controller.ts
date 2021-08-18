@@ -24,37 +24,37 @@ export abstract class BaseController<IRequest, IResponse> {
   }
 
   public conflict(message?: string): HttpException {
-    this._logger.log(`conflict, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`conflict, ${message}`);
     return new ConflictException(message ? message : 'Conflict');
   }
 
   public clientError(message?: string): HttpException {
-    this._logger.log(`client_error, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`client_error, ${message}`);
     return new BadRequestException(message ? message : 'Bad Request');
   }
 
   public unauthorized(message?: string): HttpException {
-    this._logger.log(`unauthorized, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`unauthorized, ${message}`);
     return new UnauthorizedException(message ? message : 'Unauthorized');
   }
 
   public forbidden(message?: string): HttpException {
-    this._logger.log(`forbidden, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`forbidden, ${message}`);
     return new ForbiddenException(message ? message : 'Forbidden');
   }
 
   public notFound(message?: string): HttpException {
-    this._logger.log(`not_found, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`not_found, ${message}`);
     return new NotFoundException(message ? message : 'NotFound');
   }
 
   public notImplemented(message?: string): HttpException {
-    this._logger.log(`not_implemented, ${message}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`not_implemented, ${message}`);
     return new NotImplementedException(message ? message : 'Not Implemented');
   }
 
   public fail(error: Error | string): HttpException {
-    this._logger.error(`Internal error, ${error.toString()}`);
+    if (!(process.env.NODE_ENV === "test")) this._logger.error(`Internal error, ${error.toString()}`);
     return new InternalServerErrorException(error);
   }
 }
